@@ -13,7 +13,7 @@ struct Block {
     int32_t next;
 };
 
-struct PNGDecoderParameters {
+struct PNGEncoderParameters {
     uint32_t LZ77_window_size;
     uint32_t LZ77_match_length = 0;
     Block block;
