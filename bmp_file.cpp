@@ -1,3 +1,4 @@
+#pragma once
 #include "bmp_file.h"
 
 #include <fstream>

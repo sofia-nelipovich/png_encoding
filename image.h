@@ -17,6 +17,6 @@ private:
     std::vector<Channel> channels_;
 };
 
-std::vector<Image::Channel> &Image::GetChannels() {
+inline std::vector<Image::Channel> &Image::GetChannels() {
     return channels_;
 }
