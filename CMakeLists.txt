@@ -8,4 +8,4 @@ add_executable(png_encoding
         cli.cpp cli.h
         bmp_file.cpp bmp_file.h
         image.h
-        )
+        png_encode.cpp)
