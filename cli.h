@@ -8,6 +8,11 @@
 
 namespace fs = std::__fs::filesystem;
 
+struct CommandStruct {
+    std::string_view name;
+    std::vector<std::string_view> parameters;
+};
+
 class CLI {
 public:
     CLI() = default;
@@ -22,14 +27,13 @@ public:
 
     bool IsParsed() const;
 
+    std::vector<CommandStruct>& GetCommands();
+
 private:
-    struct FilterStruct {
-        std::string_view name;
-        std::vector<std::string_view> parameters;
-    };
+
 
     std::string_view input_file_;
     std::string_view output_file_;
-    std::vector<FilterStruct> filters_vector_;
+    std::vector<CommandStruct> commands_vector_;
     bool is_parsed_ = true;
 };

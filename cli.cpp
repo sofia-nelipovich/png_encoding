@@ -42,12 +42,10 @@ void CLI::ParseArgs(int args_number, char **args_vector) {
         input_file_ = std::string_view(args_vector[INPUT_FILE_INDEX]);
         output_file_ = std::string_view(args_vector[OUTPUT_FILE_INDEX]);
         if (args_vector[3][0] == '-') {
-            FilterStruct new_filter;
-            new_filter.name = args_vector[3];
-//            filters_vector_.push_back(new_filter);
+            CommandStruct commands;
+            commands.name = args_vector[3];
         } else {
             throw std::invalid_argument("Wrong argument: " + std::string(args_vector[3]));
-//            filters_vector_[filters_vector_.size() - 1].parameters.push_back(args_vector[3]);
         }
 
     }
@@ -63,4 +61,8 @@ std::string_view CLI::GetOutputFile() const {
 
 bool CLI::IsParsed() const {
     return is_parsed_;
+}
+
+std::vector<CommandStruct>& CLI::GetCommands() {
+    return commands_vector_;
 }

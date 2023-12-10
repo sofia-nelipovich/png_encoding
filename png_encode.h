@@ -14,20 +14,23 @@ struct Block {
 };
 
 struct PNGEncoderParameters {
-    uint32_t LZ77_window_size;
+    uint32_t LZ77_window_size = 128;
     uint32_t LZ77_match_length = 0;
     Block block;
 };
 
 class PNGImage {
 public:
-    inline bool ConvertToPNGFromBMP(std::vector<unsigned char>& image, Image& bmp) {
-        using Channel = std::vector<std::vector<double>>;
-        std::vector<Channel> &channels_ = bmp.GetChannels();
-        return false;
-    }
+    PNGImage(size_t width, size_t height);
+
+    PNGImage() = default;
+
+    ~PNGImage() = default;
+
+    static inline bool ConvertToPNGFromBMP(Image& bmp);
 private:
-    size_t width_;
-    size_t height_;
-    size_t size_;
+    size_t width_ = 0;
+    size_t height_ = 0;
+    size_t size_ = 0;
+    std::vector<unsigned char> image_;
 };

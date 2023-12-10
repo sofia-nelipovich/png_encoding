@@ -25,6 +25,10 @@ public:
 
     inline void SetColorB(double value, int x, int y);
 
+    inline size_t GetWidth() const;
+
+    inline size_t GetHeight() const;
+
     std::vector<Channel> &GetChannels();
 
     inline void ChangeSize();
@@ -85,4 +89,12 @@ void Image::SetColorG(double value, int x, int y) {
 }
 void Image::SetColorB(double value, int x, int y) {
     channels_[2][x][y] = value;
+}
+
+size_t Image::GetWidth() const {
+    return channels_[0].size();
+}
+
+size_t Image::GetHeight() const {
+    return channels_[0][0].size();
 }
